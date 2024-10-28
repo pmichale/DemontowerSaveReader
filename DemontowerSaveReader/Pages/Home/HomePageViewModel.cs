@@ -36,7 +36,7 @@ public partial class HomePageViewModel(IFileService fileService) : ProjectPageBa
         else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
         {
             path = Path.Combine(
-                Environment.GetFolderPath(Environment.SpecialFolder.Personal), 
+                Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), 
                 "Library", "Application Support", "Infinite Fall", "Night in the Woods");
         }
         else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
@@ -58,7 +58,15 @@ public partial class HomePageViewModel(IFileService fileService) : ProjectPageBa
         {
             FilePath = saveFilePath;
             await ReadFileAsync(FilePath);
-            AssignAltarValues();
+            if (!AssignAltarValues())
+            {
+                NotificationService.CreateNotification()
+                    .WithTitle("Error reading values")
+                    .WithMessage("File found successfully but values could not be found. Make sure file is not corrupted and that you progressed enough to unlock Demontower.")
+                    .OfType(InfoBarSeverity.Error)
+                    .WithTimeout(TimeSpan.FromSeconds(5))
+                    .Show();
+            }
         }
         else
         {
@@ -78,10 +86,18 @@ public partial class HomePageViewModel(IFileService fileService) : ProjectPageBa
         FilePath = file.Path.LocalPath;
         
         await ReadFileAsync(FilePath);
-        AssignAltarValues();
+        if (!AssignAltarValues())
+        {
+            NotificationService.CreateNotification()
+                .WithTitle("Conversion Failed")
+                .WithMessage("Make sure the file is a Night In The Woods save file.")
+                .OfType(InfoBarSeverity.Error)
+                .WithTimeout(TimeSpan.FromSeconds(5))
+                .Show();
+        }
     }
 
-    private void AssignAltarValues()
+    private bool AssignAltarValues()
     {
         FirstAltar = _firstAltarValue is null ? "Not Found" : $"{_firstAltarValue}";
         SecondAltar = _secondAltarValue is null ? "Not Found" : $"{_secondAltarValue}";
@@ -91,22 +107,16 @@ public partial class HomePageViewModel(IFileService fileService) : ProjectPageBa
         if (_firstAltarValue is null || _secondAltarValue is null || _thirdAltarValue is null ||
             _fourthAltarValue is null)
         {
-            NotificationService.CreateNotification()
-                .WithTitle("Conversion Failed")
-                .WithMessage("Make sure the file is a Night In The Woods save file.")
-                .OfType(InfoBarSeverity.Error)
-                .WithTimeout(TimeSpan.FromSeconds(5))
-                .Show();
+            return false;
         }
-        else
-        {
-            NotificationService.CreateNotification()
-                .WithTitle("Conversion Successful")
-                .WithMessage("The file was successfully read and order of altars has been determined.")
-                .OfType(InfoBarSeverity.Success)
-                .WithTimeout(TimeSpan.FromSeconds(5))
-                .Show();
-        }
+
+        NotificationService.CreateNotification()
+            .WithTitle("Conversion Successful")
+            .WithMessage("The file was successfully read and order of altars has been determined.")
+            .OfType(InfoBarSeverity.Success)
+            .WithTimeout(TimeSpan.FromSeconds(5))
+            .Show();
+        return true;
     }
 
     private async Task ReadFileAsync(string file)
