@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="DemontowerSaveReader/App.axaml" value="DemontowerSaveReader/DemontowerSaveReader.csproj" />
+        <entry key="DemontowerSaveReader/Main/MainView.axaml" value="DemontowerSaveReader/DemontowerSaveReader.csproj" />
+        <entry key="DemontowerSaveReader/Pages/Home/HomePageView.axaml" value="DemontowerSaveReader/DemontowerSaveReader.csproj" />
+        <entry key="DemontowerSaveReader/Pages/Test/InfoPageView.axaml" value="DemontowerSaveReader/DemontowerSaveReader.csproj" />
+        <entry key="DemontowerSaveReader/Pages/Test/TestPageView.axaml" value="DemontowerSaveReader/DemontowerSaveReader.csproj" />
+        <entry key="DotNES/App.axaml" value="DotNES/DotNES.csproj" />
+        <entry key="DotNES/Main/MainAppSplashContent.axaml" value="DotNES/DotNES.csproj" />
+        <entry key="DotNES/Main/MainView.axaml" value="DotNES/DotNES.csproj" />
+        <entry key="DotNES/Pages/Home/HomePageView.axaml" value="DotNES/DotNES.csproj" />
+        <entry key="DotNES/Pages/Settings/SettingsPageView.axaml" value="DotNES/DotNES.csproj" />
+        <entry key="DotNES/Pages/Test/TestPageView.axaml" value="DotNES/DotNES.csproj" />
+        <entry key="FluentAvaloniaTemplate/Main/MainView.axaml" value="FluentAvaloniaTemplate/FluentAvaloniaTemplate.csproj" />
+        <entry key="FluentAvaloniaTemplate/Pages/Home/HomePageView.axaml" value="FluentAvaloniaTemplate/FluentAvaloniaTemplate.csproj" />
+        <entry key="FluentAvaloniaTemplate/Pages/Test/TestPageView.axaml" value="FluentAvaloniaTemplate/FluentAvaloniaTemplate.csproj" />
+      </map>
+    </option>
+  </component>
+</project>

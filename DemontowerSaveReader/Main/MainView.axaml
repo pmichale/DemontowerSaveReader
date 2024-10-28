@@ -1,0 +1,39 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:FluentAvaloniaTemplate.Main"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controls="clr-namespace:FluentAvalonia.UI.Controls;assembly=FluentAvalonia"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        Width="800"
+        Height="700"
+        CanResize="False"
+        x:Class="FluentAvaloniaTemplate.Main.MainView"
+        x:DataType="vm:MainViewModel"
+        Title="Demontower Save Reader" >
+
+    <controls:NavigationView AlwaysShowHeader="False"
+                       PaneDisplayMode="Left"
+                       Name="NavView"
+                       IsSettingsVisible="False"
+                       IsPaneToggleButtonVisible="False"
+                       IsBackEnabled="False">
+        <Grid>
+            <ContentControl Margin="10" Content="{Binding ActivePage}" />
+            
+            <ItemsControl Margin="0,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" ItemsSource="{Binding Notifications}">
+                <ItemsControl.ItemTemplate >
+                    <DataTemplate>
+                        <controls:InfoBar
+                            Title="{Binding Title}"
+                            IsOpen="{Binding IsOpen, Mode=TwoWay}"
+                            Severity="{Binding Type}"
+                            Message="{Binding Message}" />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Grid>
+        
+    </controls:NavigationView>
+
+</Window>

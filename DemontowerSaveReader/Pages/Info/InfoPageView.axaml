@@ -1,0 +1,18 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:info="clr-namespace:FluentAvaloniaTemplate.Pages.Info"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="FluentAvaloniaTemplate.Pages.Info.InfoPageView"
+        x:DataType="info:InfoPageViewModel" >
+    
+    
+    <StackPanel>
+        <Label Content="TEST" />
+        <TextBox Watermark="Title" Text="{Binding NotificationTitle}" />
+        <TextBox Watermark="Message" Text="{Binding NotificationMessage}" />
+        <Button Command="{Binding AddNotificationCommand}">Test Notification</Button>
+    </StackPanel>
+
+</UserControl>

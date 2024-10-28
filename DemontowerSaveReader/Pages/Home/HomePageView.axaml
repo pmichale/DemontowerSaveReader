@@ -1,0 +1,46 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+        xmlns:home="clr-namespace:FluentAvaloniaTemplate.Pages.Home"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="FluentAvaloniaTemplate.Pages.Home.HomePageView"
+        x:DataType="home:HomePageViewModel" >
+
+    <StackPanel Margin="10">
+        <WrapPanel Margin="0,0,0,10">
+            <Button Margin="0,0,10,0" Command="{Binding AutoDetectSaveFileCommand}">
+                <StackPanel>
+                    <Label Content="Auto-detect" />
+                    <avalonia:MaterialIcon Width="30" Height="30" Foreground="Cornsilk" Kind="AutoFix" />
+                </StackPanel>
+            </Button>
+            <Button Margin="0,0,10,0" Command="{Binding OpenFileCommand}">
+                <StackPanel>
+                    <Label Content="Open" />
+                    <avalonia:MaterialIcon Width="30" Height="30" Foreground="Cornsilk" Kind="FolderOpen" />
+                </StackPanel>
+            </Button>
+        </WrapPanel>
+        <TextBox Margin="0,0,0,10" Watermark="File" IsEnabled="False" Text="{Binding FilePath}" />
+        
+        <Grid Margin="0,10" HorizontalAlignment="Center" RowDefinitions="Auto,Auto,Auto,Auto" ColumnDefinitions="*,*">
+                <Label Grid.Row="0" Grid.Column="0" Content="First: " HorizontalAlignment="Right" VerticalAlignment="Center" />
+                <Label Grid.Row="0" Grid.Column="1" FontWeight="Bold" Content="{Binding FirstAltar}" />
+        
+                <Label Grid.Row="1" Grid.Column="0" Content="Second: " HorizontalAlignment="Right" VerticalAlignment="Center" />
+                <Label Grid.Row="1" Grid.Column="1" FontWeight="Bold" Content="{Binding SecondAltar}" />
+            
+                <Label Grid.Row="2" Grid.Column="0" Content="Third: " HorizontalAlignment="Right" VerticalAlignment="Center" />
+                <Label Grid.Row="2" Grid.Column="1" FontWeight="Bold" Content="{Binding ThirdAltar}" />
+            
+                <Label Grid.Row="3" Grid.Column="0" Content="Fourth: " HorizontalAlignment="Right" VerticalAlignment="Center" />
+                <Label Grid.Row="3" Grid.Column="1" FontWeight="Bold" Content="{Binding FourthAltar}" />
+        </Grid>
+        
+        <Image Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center"
+            Source="/Assets/legend.png"/>
+    </StackPanel>
+
+</UserControl>
