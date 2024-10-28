@@ -43,7 +43,7 @@ public partial class HomePageViewModel(IFileService fileService) : ProjectPageBa
         {
             // Use $XDG_CONFIG_HOME or fallback to a common path if it's not set
             var configHome = Environment.GetEnvironmentVariable("XDG_CONFIG_HOME") ?? 
-                                Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), ".config");
+                                Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".config");
         
             path = Path.Combine(configHome, "unity3d", "Infinite Fall", "Night in the Woods");
         }
