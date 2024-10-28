@@ -9,6 +9,9 @@
         <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
         <ImplicitUsings>enable</ImplicitUsings>
         <RootNamespace>FluentAvaloniaTemplate</RootNamespace>
+<!--        <PublishSingleFile>true</PublishSingleFile>-->
+<!--        <SelfContained>true</SelfContained>-->
+<!--        <PublishReadyToRun>true</PublishReadyToRun>-->
     </PropertyGroup>
 
     <ItemGroup>
