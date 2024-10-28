@@ -102,7 +102,7 @@ public partial class HomePageViewModel(IFileService fileService) : ProjectPageBa
         {
             NotificationService.CreateNotification()
                 .WithTitle("Conversion Successful")
-                .WithMessage("The file was successfully converted.")
+                .WithMessage("The file was successfully read and order of altars has been determined.")
                 .OfType(InfoBarSeverity.Success)
                 .WithTimeout(TimeSpan.FromSeconds(5))
                 .Show();

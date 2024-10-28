@@ -3,16 +3,57 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:info="clr-namespace:FluentAvaloniaTemplate.Pages.Info"
+        xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="FluentAvaloniaTemplate.Pages.Info.InfoPageView"
         x:DataType="info:InfoPageViewModel" >
     
     
-    <StackPanel>
-        <Label Content="TEST" />
-        <TextBox Watermark="Title" Text="{Binding NotificationTitle}" />
-        <TextBox Watermark="Message" Text="{Binding NotificationMessage}" />
-        <Button Command="{Binding AddNotificationCommand}">Test Notification</Button>
-    </StackPanel>
+        <Grid RowDefinitions="*,40" ColumnDefinitions="*">
+            <Grid.Styles>
+                <Style Selector="Button">
+                    <Setter Property="Command" Value="{Binding OpenUrlCommand}" />
+                </Style>
+                <Style Selector="avalonia|MaterialIcon">
+                    <Setter Property="Width" Value="25" />
+                    <Setter Property="Height" Value="25" />
+                </Style>
+            </Grid.Styles>
+            
+            <StackPanel Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Orientation="Horizontal"  Margin="5">
+                <Button Margin="5"
+                        CommandParameter="https://github.com/pmichale/DemontowerSaveReader"
+                        ToolTip.Tip="Open On GitHub.">
+                    <StackPanel>
+                        <avalonia:MaterialIcon Kind="Github" />
+                        <Label VerticalAlignment="Center" FontWeight="Bold" Content="View source on GitHub" />
+                    </StackPanel>
+                </Button>
+            
+                <Button Margin="5"
+                        CommandParameter="https://steamcommunity.com/profiles/76561198071857049"
+                        ToolTip.Tip="Author's Steam">
+                    <StackPanel>
+                        <avalonia:MaterialIcon Kind="Steam" />
+                        <Label VerticalAlignment="Center" FontWeight="Bold" Content="Reach out on Steam" />
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+            
+            <StackPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" Orientation="Horizontal"  Margin="5">
+                <Label VerticalAlignment="Center" FontWeight="Bold" Content="Made with" />
+                <Button BorderThickness="0" VerticalAlignment="Center" Command="{Binding OpenUrlCommand}" CommandParameter="https://avaloniaui.net/">
+                    <TextBlock FontWeight="Bold" TextDecorations="Underline" Text="AvaloniaUI" />
+                </Button>
+                <Label VerticalAlignment="Center" FontWeight="Bold" Content="and" />
+                <Button BorderThickness="0" VerticalAlignment="Center" Command="{Binding OpenUrlCommand}" CommandParameter="https://github.com/amwx/FluentAvalonia">
+                    <TextBlock FontWeight="Bold" TextDecorations="Underline" Text="FluentAvalonia" />
+                </Button>
+            </StackPanel>
+        </Grid>
+    
+        
+    
+
 
 </UserControl>
